@@ -4,6 +4,7 @@ tap "ublue-os/tap"
 brew "mise"
 brew "devcontainer"
 brew "jj"
+brew "watchman"
 
 # Editors
 brew "micro"

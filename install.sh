@@ -3,6 +3,8 @@
 # This script installs all dotfiles into their proper place.
 # There are _no_ special needs here.
 
+brew bundle check || brew bundle install
+
 mkdir -p $HOME/.config/fish
 ln -sf "$PWD/config.fish" "$HOME/.config/fish/config.fish"
 
@@ -11,3 +13,6 @@ ln -sf "$PWD/mise.toml" "$HOME/.config/mise/config.toml"
 
 mkdir -p $HOME/.config/helix
 ln -sf "$PWD/helix.toml" "$HOME/.config/helix/config.toml"
+
+mkdir -p $HOME/.config/jj
+ln -sf "$PWD/jj.toml" "$HOME/.config/jj/config.toml"
