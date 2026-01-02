@@ -1,0 +1,9 @@
+[editor.file-picker]
+hidden = false
+ignore = true
+
+[editor.whitespace]
+render = "all"
+
+[editor.lsp]
+display-inlay-hints = true

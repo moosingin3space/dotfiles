@@ -12,3 +12,8 @@ if command -q mise
         mise activate fish --shims | source
     end
 end
+### Mise setup end
+
+### Amp
+test -f $HOME/.amp/bin/amp && fish_add_path $HOME/.amp/bin
+###

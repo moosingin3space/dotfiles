@@ -1,0 +1,5 @@
+[tools]
+uv = "latest"
+rust = "latest"
+"cargo:cargo-binstall" = "latest"
+deno = "latest"
