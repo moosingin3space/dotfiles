@@ -14,6 +14,9 @@ brew "helix"
 brew "block-goose-cli"
 brew "opencode"
 
+# Container development tools
+brew "dagger"
+
 # Spotify stuff
 brew "pipewire"
 brew "spotifyd", restart_service: :changed
