@@ -16,3 +16,6 @@ ln -sf "$PWD/helix.toml" "$HOME/.config/helix/config.toml"
 
 mkdir -p $HOME/.config/jj
 ln -sf "$PWD/jj.toml" "$HOME/.config/jj/config.toml"
+
+mkdir -p $HOME/.config/spotifyd
+ln -sf "$PWD/spotifyd.conf" "$HOME/.config/spotifyd/spotifyd.conf"

@@ -14,6 +14,10 @@ brew "helix"
 brew "block-goose-cli"
 brew "opencode"
 
+# Spotify stuff
+brew "pipewire"
+brew "spotifyd", restart_service: :changed
+
 # GUI apps: Productivity
 flatpak "md.obsidian.Obsidian"
 
