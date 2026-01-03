@@ -10,6 +10,7 @@ ln -sf "$PWD/config.fish" "$HOME/.config/fish/config.fish"
 
 mkdir -p $HOME/.config/mise
 ln -sf "$PWD/mise.toml" "$HOME/.config/mise/config.toml"
+(cd /tmp && mise install)
 
 mkdir -p $HOME/.config/helix
 ln -sf "$PWD/helix.toml" "$HOME/.config/helix/config.toml"
