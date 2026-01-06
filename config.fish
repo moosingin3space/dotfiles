@@ -5,7 +5,7 @@ end
 test -f /usr/share/ublue-os/bling/bling.fish && source /usr/share/ublue-os/bling/bling.fish
 ### bling.fish source end
 ### Mise setup
-if command -q mise
+if [ "$(command -v mise)" ]
     if status is-interactive
         mise activate fish | source
     else
