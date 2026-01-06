@@ -7,5 +7,14 @@ email = "moosingin3space@gmail.com"
 [fsmonitor]
 backend = "watchman"
 
+[ui]
+editor = "hx"
+
 [templates]
 git_push_bookmark = '"moosnat/push-" ++ change_id.short()'
+
+[aliases]
+sl = ["log"]
+gf = ["git", "fetch"]
+nt = ["new", "trunk()"]
+rt = ["rebase", "-d", "trunk()"]
