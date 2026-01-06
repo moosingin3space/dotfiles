@@ -27,3 +27,6 @@ flatpak "md.obsidian.Obsidian"
 # GUI apps: Communication
 flatpak "org.signal.Signal"
 flatpak "dev.vencord.Vesktop"
+
+# GUI apps: Brave for Chromium-dependent cases
+flatpak "com.brave.Browser"
