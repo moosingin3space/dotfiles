@@ -1,4 +1,5 @@
 tap "ublue-os/tap"
+tap "moosingin3space/tap"
 
 # Basic development tooling
 brew "mise"
@@ -19,7 +20,10 @@ brew "dagger"
 
 # Spotify stuff
 brew "pipewire"
-brew "spotifyd", restart_service: :changed
+brew "moosingin3space/tap/spotifyd-linux", restart_service: :changed
+
+# Embedded development
+brew "picocom"
 
 # GUI apps: Productivity
 flatpak "md.obsidian.Obsidian"

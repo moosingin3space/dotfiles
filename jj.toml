@@ -18,3 +18,11 @@ sl = ["log"]
 gf = ["git", "fetch"]
 nt = ["new", "trunk()"]
 rt = ["rebase", "-d", "trunk()"]
+rto = ["rt", "-r", "outstanding()"]
+gfrto = ["util", "exec", "--", "bash", "-c", """
+set -eo pipefail
+jj gf && jj rto
+"""]
+
+[revset-aliases]
+'outstanding()' = 'mine() & mutable()'
