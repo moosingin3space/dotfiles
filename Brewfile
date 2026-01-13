@@ -2,6 +2,7 @@ tap "ublue-os/tap"
 tap "moosingin3space/tap"
 
 # Basic development tooling
+brew "fish"
 brew "mise"
 brew "devcontainer"
 brew "jj"
