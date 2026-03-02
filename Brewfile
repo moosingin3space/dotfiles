@@ -1,5 +1,6 @@
 tap "ublue-os/tap"
 tap "moosingin3space/tap"
+tap "anomalyco/tap"
 
 # Basic development tooling
 brew "fish"
@@ -8,16 +9,20 @@ brew "devcontainer"
 brew "jj"
 brew "watchman"
 
+# Useful communication tools
+brew "wormhole-william"
+
 # Editors
 brew "micro"
 brew "helix"
 
 # AI code agents
 brew "block-goose-cli"
-brew "opencode"
+brew "anomalyco/tap/opencode"
 
 # Container development tools
 brew "dagger"
+brew "melange"
 
 # Spotify stuff
 brew "pipewire"
