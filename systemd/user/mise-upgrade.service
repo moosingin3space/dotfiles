@@ -1,0 +1,6 @@
+[Unit]
+Description=Mise upgrade all tools
+
+[Service]
+Type=oneshot
+ExecStart=/home/linuxbrew/.linuxbrew/bin/mise upgrade --yes

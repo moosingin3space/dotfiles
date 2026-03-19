@@ -20,3 +20,9 @@ ln -sf "$PWD/jj.toml" "$HOME/.config/jj/config.toml"
 
 mkdir -p $HOME/.config/spotifyd
 ln -sf "$PWD/spotifyd.conf" "$HOME/.config/spotifyd/spotifyd.conf"
+
+mkdir -p $HOME/.config/systemd/user
+ln -sf "$PWD/systemd/user/mise-upgrade.service" "$HOME/.config/systemd/user/mise-upgrade.service"
+ln -sf "$PWD/systemd/user/mise-upgrade.timer" "$HOME/.config/systemd/user/mise-upgrade.timer"
+systemctl --user daemon-reload
+systemctl --user enable --now mise-upgrade.timer
