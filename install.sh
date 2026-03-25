@@ -24,5 +24,10 @@ ln -sf "$PWD/spotifyd.conf" "$HOME/.config/spotifyd/spotifyd.conf"
 mkdir -p $HOME/.config/systemd/user
 ln -sf "$PWD/systemd/user/mise-upgrade.service" "$HOME/.config/systemd/user/mise-upgrade.service"
 ln -sf "$PWD/systemd/user/mise-upgrade.timer" "$HOME/.config/systemd/user/mise-upgrade.timer"
+ln -sf "$PWD/systemd/user/claude-theme-sync.service" "$HOME/.config/systemd/user/claude-theme-sync.service"
 systemctl --user daemon-reload
 systemctl --user enable --now mise-upgrade.timer
+
+mkdir -p $HOME/.local/bin
+ln -sf "$PWD/scripts/claude-theme-sync.ts" "$HOME/.local/bin/claude-theme-sync.ts"
+systemctl --user enable --now claude-theme-sync.service
