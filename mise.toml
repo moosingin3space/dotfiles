@@ -1,7 +1,7 @@
 [tools]
-uv = "latest"
-rust = "latest"
-go = "latest"
-"cargo:cargo-binstall" = "latest"
-deno = "latest"
-pnpm = "latest"
+uv = "0.11.2"
+rust = "1.94.1"
+go = "1.26.1"
+"cargo:cargo-binstall" = "1.17.8"
+deno = "2.7.8"
+pnpm = "10.33.0"
