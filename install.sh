@@ -25,8 +25,11 @@ mkdir -p $HOME/.config/systemd/user
 ln -sf "$PWD/systemd/user/mise-upgrade.service" "$HOME/.config/systemd/user/mise-upgrade.service"
 ln -sf "$PWD/systemd/user/mise-upgrade.timer" "$HOME/.config/systemd/user/mise-upgrade.timer"
 ln -sf "$PWD/systemd/user/claude-theme-sync.service" "$HOME/.config/systemd/user/claude-theme-sync.service"
+ln -sf "$PWD/systemd/user/dotfiles-pull.service" "$HOME/.config/systemd/user/dotfiles-pull.service"
+ln -sf "$PWD/systemd/user/dotfiles-pull.timer" "$HOME/.config/systemd/user/dotfiles-pull.timer"
 systemctl --user daemon-reload
 systemctl --user enable --now mise-upgrade.timer
+systemctl --user enable --now dotfiles-pull.timer
 
 mkdir -p $HOME/.local/bin
 ln -sf "$PWD/scripts/claude-theme-sync.ts" "$HOME/.local/bin/claude-theme-sync.ts"

@@ -1,0 +1,8 @@
+[Unit]
+Description=Pull dotfiles updates from upstream
+
+[Service]
+Type=oneshot
+WorkingDirectory=%h/src/dotfiles
+ExecStart=/usr/bin/git pull --ff-only
+ExecStart=%h/src/dotfiles/install.sh
