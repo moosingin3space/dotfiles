@@ -19,6 +19,7 @@ brew "helix"
 # AI code agents
 brew "block-goose-cli"
 brew "anomalyco/tap/opencode"
+brew "gemini-cli"
 
 # Container development tools
 brew "dagger"
