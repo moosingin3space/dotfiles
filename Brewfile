@@ -16,10 +16,11 @@ brew "wormhole-william"
 brew "micro"
 brew "helix"
 
-# AI code agents
+# AI code agents and tooling
 brew "block-goose-cli"
 brew "anomalyco/tap/opencode"
 brew "gemini-cli"
+brew "rtk"
 
 # Container development tools
 brew "dagger"
