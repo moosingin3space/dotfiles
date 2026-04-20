@@ -1,0 +1,11 @@
+[Unit]
+Description=Restart spotifyd after system resume
+After=sleep.target
+BindsTo=sleep.target
+
+[Service]
+Type=oneshot
+ExecStart=/home/linuxbrew/.linuxbrew/bin/brew services restart spotifyd
+
+[Install]
+WantedBy=sleep.target

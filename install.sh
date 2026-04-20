@@ -27,6 +27,7 @@ ln -sf "$PWD/systemd/user/mise-upgrade.timer" "$HOME/.config/systemd/user/mise-u
 ln -sf "$PWD/systemd/user/claude-theme-sync.service" "$HOME/.config/systemd/user/claude-theme-sync.service"
 ln -sf "$PWD/systemd/user/dotfiles-pull.service" "$HOME/.config/systemd/user/dotfiles-pull.service"
 ln -sf "$PWD/systemd/user/dotfiles-pull.timer" "$HOME/.config/systemd/user/dotfiles-pull.timer"
+ln -sf "$PWD/systemd/user/spotifyd-resume.service" "$HOME/.config/systemd/user/spotifyd-resume.service"
 systemctl --user daemon-reload
 systemctl --user enable --now mise-upgrade.timer
 systemctl --user enable --now dotfiles-pull.timer
@@ -34,3 +35,4 @@ systemctl --user enable --now dotfiles-pull.timer
 mkdir -p $HOME/.local/bin
 ln -sf "$PWD/scripts/claude-theme-sync.ts" "$HOME/.local/bin/claude-theme-sync.ts"
 systemctl --user enable --now claude-theme-sync.service
+systemctl --user enable spotifyd-resume.service
