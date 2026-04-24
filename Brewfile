@@ -28,7 +28,7 @@ brew "melange"
 
 # Spotify stuff
 brew "pipewire"
-brew "moosingin3space/tap/spotifyd-linux", restart_service: :changed
+brew "spotifyd", restart_service: :changed
 
 # Embedded development
 brew "picocom"
