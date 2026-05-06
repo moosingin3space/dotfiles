@@ -1,6 +1,7 @@
 if status is-interactive
     # Commands to run in interactive sessions can go here
 end
+eval "$(brew shellenv)"
 ### bling.fish source start
 test -f /usr/share/ublue-os/bling/bling.fish && source /usr/share/ublue-os/bling/bling.fish
 ### bling.fish source end
@@ -17,7 +18,6 @@ end
 ### Amp
 test -f $HOME/.amp/bin/amp && fish_add_path $HOME/.amp/bin
 ###
-
 
 # Added by Antigravity CLI installer
 set -gx PATH "/var/home/moosnat/.local/bin" $PATH

@@ -10,6 +10,8 @@ brew "mise"
 brew "devcontainer"
 brew "jj"
 brew "watchman"
+brew "gcc"
+brew "clang"
 
 # Useful communication tools
 brew "wormhole-william"
@@ -21,16 +23,15 @@ brew "helix"
 # AI code agents and tooling
 brew "block-goose-cli"
 brew "anomalyco/tap/opencode"
-brew "gemini-cli"
 brew "rtk"
-brew "bmor"
+cask "bmor"
 
 # Container development tools
 brew "dagger"
 brew "melange"
 
 # Cloud tools
-brew "blaxel"
+cask "blaxel"
 
 # Spotify stuff
 brew "pipewire"
