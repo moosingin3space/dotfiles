@@ -1,6 +1,7 @@
 tap "ublue-os/tap"
 tap "moosingin3space/tap"
 tap "anomalyco/tap"
+tap "Branchmore/homebrew-tap"
 
 # Basic development tooling
 brew "fish"
@@ -21,6 +22,7 @@ brew "block-goose-cli"
 brew "anomalyco/tap/opencode"
 brew "gemini-cli"
 brew "rtk"
+brew "bmor"
 
 # Container development tools
 brew "dagger"
