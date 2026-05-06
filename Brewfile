@@ -2,6 +2,7 @@ tap "ublue-os/tap"
 tap "moosingin3space/tap"
 tap "anomalyco/tap"
 tap "Branchmore/homebrew-tap"
+tap "blaxel-ai/blaxel"
 
 # Basic development tooling
 brew "fish"
@@ -27,6 +28,9 @@ brew "bmor"
 # Container development tools
 brew "dagger"
 brew "melange"
+
+# Cloud tools
+brew "blaxel"
 
 # Spotify stuff
 brew "pipewire"

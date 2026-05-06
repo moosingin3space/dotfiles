@@ -17,3 +17,7 @@ end
 ### Amp
 test -f $HOME/.amp/bin/amp && fish_add_path $HOME/.amp/bin
 ###
+
+
+# Added by Antigravity CLI installer
+set -gx PATH "/var/home/moosnat/.local/bin" $PATH
