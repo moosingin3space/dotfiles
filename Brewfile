@@ -11,7 +11,7 @@ brew "devcontainer"
 brew "jj"
 brew "watchman"
 brew "gcc"
-brew "clang"
+brew "llvm"
 
 # Useful communication tools
 brew "wormhole-william"
@@ -22,6 +22,7 @@ brew "helix"
 
 # AI code agents and tooling
 brew "block-goose-cli"
+brew "ramalama"
 brew "anomalyco/tap/opencode"
 brew "rtk"
 cask "bmor"
