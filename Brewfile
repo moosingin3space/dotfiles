@@ -3,6 +3,7 @@ tap "moosingin3space/tap"
 tap "anomalyco/tap"
 tap "Branchmore/homebrew-tap"
 tap "blaxel-ai/blaxel"
+tap "dirge-code/dirge"
 
 # Basic development tooling
 brew "fish"
@@ -24,6 +25,7 @@ brew "helix"
 brew "block-goose-cli"
 brew "ramalama"
 brew "anomalyco/tap/opencode"
+brew "dirge"
 brew "rtk"
 cask "bmor"
 
