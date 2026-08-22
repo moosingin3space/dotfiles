@@ -26,6 +26,7 @@ brew "block-goose-cli"
 brew "ramalama"
 brew "anomalyco/tap/opencode"
 brew "dirge"
+cask "codex"
 brew "rtk"
 cask "bmor"
 
