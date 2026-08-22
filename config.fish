@@ -21,3 +21,7 @@ test -f $HOME/.amp/bin/amp && fish_add_path $HOME/.amp/bin
 
 # Added by Antigravity CLI installer
 set -gx PATH "/var/home/moosnat/.local/bin" $PATH
+
+# bun
+set --export BUN_INSTALL "$HOME/.bun"
+set --export PATH $BUN_INSTALL/bin $PATH
