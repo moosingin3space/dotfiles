@@ -1,0 +1,78 @@
+[ui]
+agent_panel_sort = "priority"
+
+[theme]
+name = "terminal"
+
+# herdr-navigator plugin configuration
+[[keys.command]]
+key = "prefix+t"
+type = "plugin_action"
+command = "herdr-navigator.open"
+description = "jump to anything"
+
+# herdr-plugin-jj-workspace configuration
+[[keys.command]]
+key = "prefix+a"
+type = "plugin_action"
+command = "nathanflurry.jj-workspace.new"
+description = "new jj workspace"
+
+[[keys.command]]
+key = "prefix+shift+a"
+type = "plugin_action"
+command = "nathanflurry.jj-workspace.new-tab"
+description = "new jj workspace (in tab)"
+
+[[keys.command]]
+key = "prefix+d"
+type = "plugin_action"
+command = "nathanflurry.jj-workspace.remove"
+description = "remove jj workspace"
+
+# herdr-yazi configuration
+[[keys.command]]
+key = "prefix+y"
+type = "plugin_action"
+command = "ray.file-explorer.open"
+description = "open file explorer"
+
+[[keys.command]]
+key = "prefix+shift+y"
+type = "plugin_action"
+command = "ray.file-explorer.open-tab"
+description = "open file explorer (in tab)"
+
+# memex configuration
+[[keys.command]]
+key = "prefix+m"
+type = "plugin_action"
+command = "nicosuave.memex.palette"
+description = "memex session palette"
+
+# herdr-plus configuration
+[[keys.command]]
+key = "prefix+up"
+type = "plugin_action"
+command = "cloudmaniac.herdr-plus.projects"
+description = "herdr-plus: projects"
+
+[[keys.command]]
+key = "prefix+down"
+type = "plugin_action"
+command = "cloudmaniac.herdr-plus.quick-actions"
+description = "herdr-plus: quick-actions"
+
+# herdr-lazy
+[[keys.command]]
+key = "prefix+shift+l"
+type = "plugin_action"
+command = "herdr-lazy.manage"
+description = "manage plugins"
+
+# herdr-command-palette
+[[keys.command]]
+key = "prefix+p"
+type = "plugin_action"
+command = "jt.command-palette.open"
+description = "Command palette"

@@ -21,6 +21,12 @@ ln -sf "$PWD/jj.toml" "$HOME/.config/jj/config.toml"
 mkdir -p $HOME/.config/spotifyd
 ln -sf "$PWD/spotifyd.conf" "$HOME/.config/spotifyd/spotifyd.conf"
 
+mkdir -p $HOME/.config/herdr
+ln -sf "$PWD/herdr.toml" "$HOME/.config/herdr/config.toml"
+
+mkdir -p $HOME/.config/yazi
+ln -sf "$PWD/yazi.toml" "$HOME/.config/yazi/yazi.toml"
+
 mkdir -p $HOME/.config/systemd/user
 ln -sf "$PWD/systemd/user/mise-upgrade.service" "$HOME/.config/systemd/user/mise-upgrade.service"
 ln -sf "$PWD/systemd/user/mise-upgrade.timer" "$HOME/.config/systemd/user/mise-upgrade.timer"
@@ -33,6 +39,4 @@ systemctl --user enable --now mise-upgrade.timer
 systemctl --user enable --now dotfiles-pull.timer
 
 mkdir -p $HOME/.local/bin
-ln -sf "$PWD/scripts/claude-theme-sync.ts" "$HOME/.local/bin/claude-theme-sync.ts"
-systemctl --user enable --now claude-theme-sync.service
 systemctl --user enable spotifyd-resume.service

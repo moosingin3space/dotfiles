@@ -4,6 +4,8 @@ tap "anomalyco/tap"
 tap "Branchmore/homebrew-tap"
 tap "blaxel-ai/blaxel"
 tap "dirge-code/dirge"
+tap "nicosuave/tap"
+tap "cloudmaniac/herdr-plus"
 
 # Basic development tooling
 brew "fish"
@@ -21,6 +23,10 @@ brew "wormhole-william"
 brew "micro"
 brew "helix"
 
+# Great system utilities
+brew "yazi"
+brew "herdr-plus"
+
 # AI code agents and tooling
 brew "block-goose-cli"
 brew "ramalama"
@@ -30,6 +36,7 @@ cask "codex"
 brew "rtk"
 cask "bmor"
 brew "herdr"
+brew "memex"
 
 # Container development tools
 brew "dagger"
