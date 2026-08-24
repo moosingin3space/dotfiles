@@ -29,6 +29,7 @@ brew "dirge"
 cask "codex"
 brew "rtk"
 cask "bmor"
+brew "herdr"
 
 # Container development tools
 brew "dagger"
