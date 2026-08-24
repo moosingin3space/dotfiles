@@ -1,0 +1,10 @@
+theme = "lucario"
+copy-on-select = true
+
+[bell]
+audio = true
+
+[navigation]
+mode = "Plain"
+use-split = false
+hide-if-single = true

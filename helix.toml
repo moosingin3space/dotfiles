@@ -1,3 +1,5 @@
+theme = "lucario"
+
 [editor.file-picker]
 hidden = false
 ignore = true

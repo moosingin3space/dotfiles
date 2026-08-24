@@ -27,6 +27,10 @@ ln -sf "$PWD/herdr.toml" "$HOME/.config/herdr/config.toml"
 mkdir -p $HOME/.config/yazi
 ln -sf "$PWD/yazi.toml" "$HOME/.config/yazi/yazi.toml"
 
+mkdir -p $HOME/.config/rio
+ln -sf "$PWD/rio.toml" "$HOME/.config/rio/config.toml"
+ln -sf "$PWD/rio.toml" "$HOME/.var/app/com.rioterm.Rio/config/rio/config.toml"
+
 mkdir -p $HOME/.config/systemd/user
 ln -sf "$PWD/systemd/user/mise-upgrade.service" "$HOME/.config/systemd/user/mise-upgrade.service"
 ln -sf "$PWD/systemd/user/mise-upgrade.timer" "$HOME/.config/systemd/user/mise-upgrade.timer"

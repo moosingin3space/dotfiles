@@ -5,7 +5,7 @@ tap "Branchmore/homebrew-tap"
 tap "blaxel-ai/blaxel"
 tap "dirge-code/dirge"
 tap "nicosuave/tap"
-tap "cloudmaniac/herdr-plus"
+tap "cloudmanic/herdr-plus", "https://github.com/cloudmanic/herdr-plus.git"
 
 # Basic development tooling
 brew "fish"
@@ -25,7 +25,6 @@ brew "helix"
 
 # Great system utilities
 brew "yazi"
-brew "herdr-plus"
 
 # AI code agents and tooling
 brew "block-goose-cli"
@@ -36,6 +35,7 @@ cask "codex"
 brew "rtk"
 cask "bmor"
 brew "herdr"
+brew "herdr-plus"
 brew "memex"
 
 # Container development tools
@@ -51,6 +51,9 @@ brew "spotifyd", restart_service: :changed
 
 # Embedded development
 brew "picocom"
+
+# GUI apps: Terminal
+flatpak "com.rioterm.Rio"
 
 # GUI apps: Productivity
 flatpak "md.obsidian.Obsidian"
