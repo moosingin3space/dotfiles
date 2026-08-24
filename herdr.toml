@@ -4,6 +4,12 @@ agent_panel_sort = "priority"
 [theme]
 name = "terminal"
 
+[theme.custom]
+surface_dim = "#19242f"
+
+[experimental]
+kitty_graphics = true
+
 # herdr-navigator plugin configuration
 [[keys.command]]
 key = "prefix+t"
