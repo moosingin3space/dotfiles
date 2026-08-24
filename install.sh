@@ -12,8 +12,9 @@ mkdir -p $HOME/.config/mise
 ln -sf "$PWD/mise.toml" "$HOME/.config/mise/config.toml"
 (cd /tmp && mise install)
 
-mkdir -p $HOME/.config/helix
+mkdir -p $HOME/.config/helix/themes
 ln -sf "$PWD/helix.toml" "$HOME/.config/helix/config.toml"
+ln -sf "$PWD/themes/helix-lucario.toml" "$HOME/.config/helix/themes/lucario.toml"
 
 mkdir -p $HOME/.config/jj
 ln -sf "$PWD/jj.toml" "$HOME/.config/jj/config.toml"
@@ -27,9 +28,13 @@ ln -sf "$PWD/herdr.toml" "$HOME/.config/herdr/config.toml"
 mkdir -p $HOME/.config/yazi
 ln -sf "$PWD/yazi.toml" "$HOME/.config/yazi/yazi.toml"
 
-mkdir -p $HOME/.config/rio
+mkdir -p $HOME/.config/rio/themes
 ln -sf "$PWD/rio.toml" "$HOME/.config/rio/config.toml"
+ln -sf "$PWD/themes/rio-lucario.toml" "$HOME/.config/rio/themes/lucario.toml"
+
+mkdir -p $HOME/.var/app/com.rioterm.Rio/config/rio/themes
 ln -sf "$PWD/rio.toml" "$HOME/.var/app/com.rioterm.Rio/config/rio/config.toml"
+ln -sf "$PWD/themes/rio-lucario.toml" "$HOME/.var/app/com.rioterm.Rio/config/rio/themes/lucario.toml"
 
 mkdir -p $HOME/.config/systemd/user
 ln -sf "$PWD/systemd/user/mise-upgrade.service" "$HOME/.config/systemd/user/mise-upgrade.service"
