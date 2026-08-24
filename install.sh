@@ -25,6 +25,9 @@ ln -sf "$PWD/spotifyd.conf" "$HOME/.config/spotifyd/spotifyd.conf"
 mkdir -p $HOME/.config/herdr
 ln -sf "$PWD/herdr.toml" "$HOME/.config/herdr/config.toml"
 
+mkdir -p $HOME/.config/herdr/plugins/config/herdr-lazy
+ln -sf "$PWD/herdr-lazy-plugins.list" "$HOME/.config/herdr/plugins/config/herdr-lazy/plugins.list"
+
 mkdir -p $HOME/.config/yazi
 ln -sf "$PWD/yazi.toml" "$HOME/.config/yazi/yazi.toml"
 
