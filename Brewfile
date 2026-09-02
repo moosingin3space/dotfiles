@@ -16,6 +16,9 @@ brew "watchman"
 brew "gcc"
 brew "llvm"
 
+# Programming language tools
+brew "bun"
+
 # Useful communication tools
 brew "wormhole-william"
 
