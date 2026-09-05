@@ -12,6 +12,7 @@ brew "fish"
 brew "mise"
 brew "devcontainer"
 brew "jj"
+brew "jjui"
 brew "watchman"
 brew "gcc"
 brew "llvm"
@@ -60,6 +61,7 @@ flatpak "com.rioterm.Rio"
 
 # GUI apps: Productivity
 flatpak "md.obsidian.Obsidian"
+flatpak "io.podman_desktop.PodmanDesktop"
 
 # GUI apps: Communication
 flatpak "org.signal.Signal"
