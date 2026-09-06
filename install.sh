@@ -42,7 +42,6 @@ ln -sf "$PWD/themes/rio-lucario.toml" "$HOME/.var/app/com.rioterm.Rio/config/rio
 mkdir -p $HOME/.config/systemd/user
 ln -sf "$PWD/systemd/user/mise-upgrade.service" "$HOME/.config/systemd/user/mise-upgrade.service"
 ln -sf "$PWD/systemd/user/mise-upgrade.timer" "$HOME/.config/systemd/user/mise-upgrade.timer"
-ln -sf "$PWD/systemd/user/claude-theme-sync.service" "$HOME/.config/systemd/user/claude-theme-sync.service"
 ln -sf "$PWD/systemd/user/dotfiles-pull.service" "$HOME/.config/systemd/user/dotfiles-pull.service"
 ln -sf "$PWD/systemd/user/dotfiles-pull.timer" "$HOME/.config/systemd/user/dotfiles-pull.timer"
 ln -sf "$PWD/systemd/user/spotifyd-resume.service" "$HOME/.config/systemd/user/spotifyd-resume.service"

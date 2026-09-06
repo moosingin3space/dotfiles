@@ -8,3 +8,6 @@ audio = true
 mode = "Plain"
 use-split = false
 hide-if-single = true
+
+[fonts]
+family = "CaskaydiaMono Nerd Font"
