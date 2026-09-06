@@ -35,6 +35,16 @@ ln -sf "$repo_root/herdr.toml" "$HOME/.config/herdr/config.toml"
 mkdir -p $HOME/.config/herdr/plugins/config/herdr-lazy
 ln -sf "$repo_root/herdr-lazy-plugins.list" "$HOME/.config/herdr/plugins/config/herdr-lazy/plugins.list"
 
+collie_config_dir="$HOME/.config/herdr/plugins/config/herdr.collie"
+collie_env="$collie_config_dir/.env"
+mkdir -p "$collie_config_dir"
+if [[ ! -e "$collie_env" ]]; then
+  printf '%s\n' \
+    '# Collie is managed through Herdr; set COLLIE_TRUSTED_USER manually.' \
+    'COLLIE_MUX=herdr' \
+    > "$collie_env"
+fi
+
 mkdir -p $HOME/.config/yazi
 ln -sf "$repo_root/yazi.toml" "$HOME/.config/yazi/yazi.toml"
 
