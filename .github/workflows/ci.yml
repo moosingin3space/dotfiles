@@ -18,10 +18,16 @@ jobs:
   install:
     name: Install in an empty Homebrew container (including mise)
     runs-on: ubuntu-latest
-    container: ghcr.io/homebrew/brew:latest
+    container:
+      image: ghcr.io/homebrew/brew:latest
+      options: --user=root
     steps:
       - uses: actions/checkout@v7.0.1
-      - run: bash tests/test-install.sh
+      - name: Run installer test as linuxbrew
+        run: |
+          chown -R linuxbrew:linuxbrew "$GITHUB_WORKSPACE"
+          su --login --shell /bin/bash linuxbrew -c \
+            "export PATH=/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:\$PATH; cd '$GITHUB_WORKSPACE' && bash tests/test-install.sh"
 
   herdr-plugins:
     name: herdr lazy plugins
