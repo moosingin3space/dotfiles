@@ -1,4 +1,17 @@
 onboarding = false
+
+[keys]
+previous_agent = "ctrl+up"
+next_agent = "ctrl+down"
+previous_workspace = "alt+up"
+next_workspace = "alt+down"
+previous_tab = "alt+left"
+next_tab = "alt+right"
+focus_pane_left = "alt+h"
+focus_pane_down = "alt+j"
+focus_pane_up = "alt+k"
+focus_pane_right = "alt+l"
+
 [ui]
 agent_panel_sort = "priority"
 tab_bar_right = [
