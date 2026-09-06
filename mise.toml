@@ -4,7 +4,7 @@ rust = "1.97.1"
 go = "1.26.2"
 "cargo:cargo-binstall" = "1.23.0"
 deno = "2.7.12"
-pnpm = "10.33.0"
+pnpm = "10.34.5"
 "cargo:zizmor" = "1.30.0"
 # Homebrew's mise 2026.9.1 still resolves the pre-transfer jdx/aube registry
 # entry, so use the current GitHub repository explicitly until that registry updates.
