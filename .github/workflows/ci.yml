@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+
+permissions:
+  contents: read
+
+jobs:
+  themes:
+    name: Theme contrast
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 tests/check_theme_contrast.py
+
+  install:
+    name: Install in an empty Homebrew container
+    runs-on: ubuntu-latest
+    container: ghcr.io/homebrew/brew:latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: bash tests/test-install.sh
+
+  herdr-plugins:
+    name: herdr lazy plugins
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - env:
+          GH_TOKEN: ${{ github.token }}
+        run: bash tests/check-herdr-lazy-plugins.sh

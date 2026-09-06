@@ -91,7 +91,7 @@
 "ui.background"                   = { fg = "foreground", bg = "background" }
 "ui.cursor"                       = { fg = "background", bg = "cursor" }
 "ui.cursor.insert"                = { fg = "background", bg = "cursor" }
-"ui.cursor.match"                 = { fg = "foreground", bg = "grey" }
+"ui.cursor.match"                 = { fg = "black", bg = "grey" }
 "ui.cursor.normal"                = { fg = "background", bg = "cursor" }
 "ui.cursor.primary.insert"        = { fg = "background", bg = "cursor" }
 "ui.cursor.primary.normal"        = { fg = "background", bg = "cursor" }
@@ -135,19 +135,19 @@
 [palette]
 background        = "#2b3e50"
 black             = "#19242f"
-blue              = "#5c98cd"
-comment           = "#5c98cd"
+blue              = "#72afe4"
+comment           = "#72afe4"
 current_line      = "#243443"
 cursor            = "#f0cc04"
 cursorline        = "#405160"
 cyan              = "#8be0fd"
 foreground        = "#f8f8f2"
-green             = "#199c4b"
-grey              = "#929ba1"
+green             = "#46bd72"
+grey              = "#a6b0b8"
 indent            = "#2b3e50"
 magenta           = "#ca94ff"
 orange            = "#ffb3b5"
-red               = "#e94b35"
+red               = "#ff8878"
 selection         = "#19242f"
 tabs-active       = "#f0cc04"
 whitespace        = "#61bbc8"
