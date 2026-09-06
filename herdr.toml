@@ -18,6 +18,9 @@ tab_bar_right = [
   { type = "command", command = "/var/home/moosnat/src/herdr-sleep-inhibit/target/release/herdr-sleep-inhibit indicator", interval_seconds = 2, timeout_seconds = 1 },
 ]
 
+[ui.sidebar.spaces]
+rows = [["state_icon", "workspace"], ["branch", "git_status"], ["$jj_bookmark", "$jj_status"]]
+
 [theme]
 name = "terminal"
 
