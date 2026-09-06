@@ -1,1 +1,2 @@
-brew "hello"
+brew "mise"
+brew "yq"

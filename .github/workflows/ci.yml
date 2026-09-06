@@ -12,22 +12,22 @@ jobs:
     name: Theme contrast
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7.0.1
       - run: python3 tests/check_theme_contrast.py
 
   install:
-    name: Install in an empty Homebrew container
+    name: Install in an empty Homebrew container (including mise)
     runs-on: ubuntu-latest
     container: ghcr.io/homebrew/brew:latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7.0.1
       - run: bash tests/test-install.sh
 
   herdr-plugins:
     name: herdr lazy plugins
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7.0.1
       - env:
           GH_TOKEN: ${{ github.token }}
         run: bash tests/check-herdr-lazy-plugins.sh

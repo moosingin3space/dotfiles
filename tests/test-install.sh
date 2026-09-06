@@ -8,7 +8,6 @@ trap 'rm -rf "$test_home"' EXIT
 
 HOME="$test_home" \
   BREWFILE="$repo_root/tests/Brewfile" \
-  DOTFILES_SKIP_MISE=1 \
   DOTFILES_SKIP_SYSTEMD=1 \
   bash "$repo_root/install.sh"
 
@@ -16,3 +15,9 @@ test "$(readlink "$test_home/.config/fish/config.fish")" = "$repo_root/config.fi
 test "$(readlink "$test_home/.config/helix/themes/lucario.toml")" = "$repo_root/themes/helix-lucario.toml"
 test "$(readlink "$test_home/.config/herdr/plugins/config/herdr-lazy/plugins.list")" = "$repo_root/herdr-lazy-plugins.list"
 test "$(readlink "$test_home/.var/app/com.rioterm.Rio/config/rio/config.toml")" = "$repo_root/rio.toml"
+
+# `mise install` reads the config symlinked by install.sh. Derive the complete
+# expected tool list from the same TOML file rather than duplicating it here.
+while IFS= read -r tool; do
+  HOME="$test_home" mise where "$tool" >/dev/null
+done < <(yq -p=toml -o=json -r '.tools | keys[]' "$repo_root/mise.toml")
