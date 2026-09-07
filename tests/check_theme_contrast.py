@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import json
 import pathlib
 import sys
 import tomllib
@@ -12,6 +13,18 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 # These are line and wrap markers rather than textual content. They must stay
 # subtle so they do not compete with the editor text.
 NON_TEXT_HELIX_STYLES = {"ui.virtual.indent-guide", "ui.virtual.wrap"}
+JJUI_SELECTION_FOREGROUNDS = {
+    "#f8f8f2",
+    "#a6b0b8",
+    "#72afe4",
+    "#8be0fd",
+    "#46bd72",
+    "#ca94ff",
+    "#ffb3b5",
+    "#ff8878",
+    "#e6db74",
+    "#f0cc04",
+}
 
 
 def luminance(colour: str) -> float:
@@ -66,15 +79,78 @@ def check_rio(path: pathlib.Path, failures: list[str]) -> None:
         require_contrast(f"{path.name}: {name}", foreground, background, failures)
 
 
+def check_jjui(path: pathlib.Path, failures: list[str]) -> None:
+    colours = tomllib.loads(path.read_text())["colors"]
+    canvas = colours["text"]["bg"]
+    for name, style in colours.items():
+        if not isinstance(style, dict) or "fg" not in style:
+            continue
+        require_contrast(f"{path.name}: {name}", style["fg"], style.get("bg", canvas), failures)
+    selected_background = colours["revisions:selected"]["bg"]
+    for foreground in JJUI_SELECTION_FOREGROUNDS:
+        require_contrast(
+            f"{path.name}: inherited jj colour {foreground} on selection",
+            foreground,
+            selected_background,
+            failures,
+        )
+
+
+def check_yazi(path: pathlib.Path, failures: list[str]) -> None:
+    theme = tomllib.loads(path.read_text())
+    canvas = theme["app"]["overall"]["bg"]
+    for section, styles in theme.items():
+        if not isinstance(styles, dict):
+            continue
+        for name, style in styles.items():
+            definitions = style if isinstance(style, list) else [style]
+            for index, definition in enumerate(definitions):
+                if not isinstance(definition, dict) or "fg" not in definition:
+                    continue
+                suffix = f"[{index}]" if isinstance(style, list) else ""
+                require_contrast(
+                    f"{path.name}: {section}.{name}{suffix}",
+                    definition["fg"],
+                    definition.get("bg", canvas),
+                    failures,
+                )
+
+
+def check_glow(path: pathlib.Path, failures: list[str]) -> None:
+    style = json.loads(path.read_text())
+    canvas = style["document"]["background_color"]
+    for name, definition in style.items():
+        if not isinstance(definition, dict) or "color" not in definition:
+            continue
+        require_contrast(
+            f"{path.name}: {name}", definition["color"], definition.get("background_color", canvas), failures
+        )
+
+
+def check_herdr(path: pathlib.Path, failures: list[str]) -> None:
+    colours = tomllib.loads(path.read_text())["theme"]["custom"]
+    text = colours["text"]
+    for name in ("surface_dim", "sidebar_bg", "panel_bg", "active_row_bg", "selection_bg"):
+        require_contrast(f"{path.name}: text on {name}", text, colours[name], failures)
+    for name in ("accent", "red", "green", "blue", "yellow"):
+        require_contrast(f"{path.name}: {name}", colours[name], colours["panel_bg"], failures)
+
+
 def main() -> int:
     failures: list[str] = []
     for path in sorted((ROOT / "themes").glob("*.toml")):
         if path.name.startswith("helix-"):
             check_helix(path, failures)
+        elif path.name.startswith("jjui-"):
+            check_jjui(path, failures)
         elif path.name.startswith("rio-"):
             check_rio(path, failures)
+        elif path.name.startswith("yazi-"):
+            check_yazi(path, failures)
         else:
             failures.append(f"{path}: unsupported theme format; add a contrast checker")
+    check_herdr(ROOT / "herdr.toml", failures)
+    check_glow(ROOT / "themes/glow-lucario.json", failures)
     if failures:
         print("\n".join(failures), file=sys.stderr)
         return 1

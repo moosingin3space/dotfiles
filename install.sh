@@ -26,6 +26,14 @@ ln -sf "$repo_root/themes/helix-lucario.toml" "$HOME/.config/helix/themes/lucari
 mkdir -p $HOME/.config/jj
 ln -sf "$repo_root/jj.toml" "$HOME/.config/jj/config.toml"
 
+mkdir -p $HOME/.config/jjui/themes
+ln -sf "$repo_root/jjui.toml" "$HOME/.config/jjui/config.toml"
+ln -sf "$repo_root/themes/jjui-lucario.toml" "$HOME/.config/jjui/themes/lucario.toml"
+
+mkdir -p $HOME/.config/glow
+ln -sf "$repo_root/glow.yml" "$HOME/.config/glow/glow.yml"
+ln -sf "$repo_root/themes/glow-lucario.json" "$HOME/.config/glow/lucario.json"
+
 mkdir -p $HOME/.config/spotifyd
 ln -sf "$repo_root/spotifyd.conf" "$HOME/.config/spotifyd/spotifyd.conf"
 
@@ -47,6 +55,7 @@ fi
 
 mkdir -p $HOME/.config/yazi
 ln -sf "$repo_root/yazi.toml" "$HOME/.config/yazi/yazi.toml"
+ln -sf "$repo_root/themes/yazi-lucario.toml" "$HOME/.config/yazi/theme.toml"
 
 mkdir -p $HOME/.config/rio/themes
 ln -sf "$repo_root/rio.toml" "$HOME/.config/rio/config.toml"

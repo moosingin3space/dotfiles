@@ -25,7 +25,20 @@ rows = [["state_icon", "workspace"], ["branch", "git_status"], ["$jj_bookmark", 
 name = "terminal"
 
 [theme.custom]
+# Keep Herdr in step with the Lucario themes used by Helix and Rio. In
+# particular, the blue-gray active and selection surfaces preserve readable
+# light text while making the focused row distinct.
 surface_dim = "#19242f"
+sidebar_bg = "#19242f"
+panel_bg = "#2b3e50"
+active_row_bg = "#405160"
+selection_bg = "#405160"
+text = "#f8f8f2"
+accent = "#f0cc04"
+red = "#ff8878"
+green = "#46bd72"
+blue = "#72afe4"
+yellow = "#f0cc04"
 
 [experimental]
 kitty_graphics = true

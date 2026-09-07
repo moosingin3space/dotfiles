@@ -1,0 +1,108 @@
+# Lucario theme for Yazi. The current-file indicator and active controls use
+# dark text on yellow so they remain recognizable at a glance.
+[app]
+overall = { bg = "#2b3e50" }
+
+[mgr]
+cwd = { fg = "#8be0fd", bold = true }
+find_keyword = { fg = "#2b3e50", bg = "#f0cc04", bold = true }
+find_position = { fg = "#e6db74" }
+symlink_target = { fg = "#a6b0b8" }
+marker_copied = { fg = "#72afe4", bg = "#19242f" }
+marker_cut = { fg = "#ff8878", bg = "#19242f" }
+marker_marked = { fg = "#ca94ff", bg = "#19242f" }
+marker_selected = { fg = "#f0cc04", bg = "#19242f" }
+count_copied = { fg = "#2b3e50", bg = "#72afe4", bold = true }
+count_cut = { fg = "#2b3e50", bg = "#ff8878", bold = true }
+count_selected = { fg = "#2b3e50", bg = "#f0cc04", bold = true }
+border_style = { fg = "#a6b0b8" }
+
+[indicator]
+parent = { fg = "#2b3e50", bg = "#72afe4" }
+current = { fg = "#2b3e50", bg = "#f0cc04", bold = true }
+preview = { fg = "#2b3e50", bg = "#8be0fd" }
+
+[tabs]
+active = { fg = "#2b3e50", bg = "#f0cc04", bold = true }
+inactive = { fg = "#f8f8f2", bg = "#19242f" }
+
+[mode]
+normal_main = { fg = "#2b3e50", bg = "#72afe4", bold = true }
+normal_alt = { fg = "#f8f8f2", bg = "#19242f" }
+select_main = { fg = "#2b3e50", bg = "#f0cc04", bold = true }
+select_alt = { fg = "#f8f8f2", bg = "#19242f" }
+unset_main = { fg = "#2b3e50", bg = "#a6b0b8", bold = true }
+unset_alt = { fg = "#f8f8f2", bg = "#19242f" }
+
+[status]
+overall = { fg = "#f8f8f2", bg = "#19242f" }
+perm_type = { fg = "#8be0fd" }
+perm_read = { fg = "#46bd72" }
+perm_write = { fg = "#f0cc04" }
+perm_exec = { fg = "#ff8878" }
+perm_sep = { fg = "#a6b0b8" }
+progress_label = { fg = "#f8f8f2" }
+progress_normal = { fg = "#2b3e50", bg = "#72afe4" }
+progress_error = { fg = "#2b3e50", bg = "#ff8878" }
+
+[which]
+mask = { fg = "#f8f8f2", bg = "#19242f" }
+cand = { fg = "#2b3e50", bg = "#f0cc04", bold = true }
+rest = { fg = "#e6db74" }
+desc = { fg = "#f8f8f2" }
+separator_style = { fg = "#a6b0b8" }
+
+[confirm]
+border = { fg = "#8be0fd" }
+title = { fg = "#8be0fd", bold = true }
+body = { fg = "#f8f8f2", bg = "#19242f" }
+list = { fg = "#f8f8f2", bg = "#19242f" }
+btn_yes = { fg = "#2b3e50", bg = "#46bd72", bold = true }
+btn_no = { fg = "#2b3e50", bg = "#ff8878", bold = true }
+
+[spot]
+border = { fg = "#8be0fd" }
+title = { fg = "#8be0fd", bold = true }
+tbl_col = { fg = "#2b3e50", bg = "#72afe4" }
+tbl_cell = { fg = "#2b3e50", bg = "#f0cc04" }
+
+[notify]
+title_info = { fg = "#8be0fd", bg = "#19242f", bold = true }
+title_warn = { fg = "#f0cc04", bg = "#19242f", bold = true }
+title_error = { fg = "#ff8878", bg = "#19242f", bold = true }
+
+[pick]
+border = { fg = "#8be0fd" }
+active = { fg = "#2b3e50", bg = "#f0cc04", bold = true }
+inactive = { fg = "#f8f8f2", bg = "#19242f" }
+
+[input]
+border = { fg = "#8be0fd" }
+title = { fg = "#8be0fd", bold = true }
+value = { fg = "#f8f8f2", bg = "#19242f" }
+selected = { fg = "#2b3e50", bg = "#f0cc04" }
+
+[cmp]
+border = { fg = "#8be0fd" }
+active = { fg = "#2b3e50", bg = "#f0cc04", bold = true }
+inactive = { fg = "#f8f8f2", bg = "#19242f" }
+
+[tasks]
+border = { fg = "#8be0fd" }
+title = { fg = "#8be0fd", bold = true }
+hovered = { fg = "#2b3e50", bg = "#f0cc04", bold = true }
+
+[help]
+border = { fg = "#8be0fd" }
+chord = { fg = "#2b3e50", bg = "#f0cc04", bold = true }
+action = { fg = "#f8f8f2", bg = "#19242f" }
+hovered = { fg = "#2b3e50", bg = "#72afe4", bold = true }
+
+[filetype]
+rules = [
+  { url = "*/", fg = "#72afe4" },
+  { mime = "{audio,video}/*", fg = "#ca94ff" },
+  { mime = "image/*", fg = "#f0cc04" },
+  { mime = "inode/empty", fg = "#8be0fd" },
+  { url = "*", is = "orphan", fg = "#ff8878" },
+]

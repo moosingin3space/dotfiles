@@ -13,6 +13,9 @@ HOME="$test_home" \
 
 test "$(readlink "$test_home/.config/fish/config.fish")" = "$repo_root/config.fish"
 test "$(readlink "$test_home/.config/helix/themes/lucario.toml")" = "$repo_root/themes/helix-lucario.toml"
+test "$(readlink "$test_home/.config/jjui/themes/lucario.toml")" = "$repo_root/themes/jjui-lucario.toml"
+test "$(readlink "$test_home/.config/glow/lucario.json")" = "$repo_root/themes/glow-lucario.json"
+test "$(readlink "$test_home/.config/yazi/theme.toml")" = "$repo_root/themes/yazi-lucario.toml"
 test "$(readlink "$test_home/.config/herdr/plugins/config/herdr-lazy/plugins.list")" = "$repo_root/herdr-lazy-plugins.list"
 test "$(readlink "$test_home/.var/app/com.rioterm.Rio/config/rio/config.toml")" = "$repo_root/rio.toml"
 collie_env="$test_home/.config/herdr/plugins/config/herdr.collie/.env"

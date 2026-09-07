@@ -1,0 +1,3 @@
+# Glow accepts a stylesheet path here. Keep it alongside this config so its
+# colors do not depend on the host terminal's ANSI palette.
+style: "$HOME/.config/glow/lucario.json"

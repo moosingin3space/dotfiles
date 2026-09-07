@@ -1,0 +1,24 @@
+# Lucario theme for jjui. Every surface with text has an explicit foreground
+# and background so selection remains visible in any terminal emulator.
+[colors]
+"text" = { fg = "#f8f8f2", bg = "#2b3e50" }
+"dimmed" = { fg = "#a6b0b8" }
+":selected" = { fg = "#f8f8f2", bg = "#19242f", bold = true }
+"border" = { fg = "#a6b0b8" }
+"title" = { fg = "#8be0fd", bold = true }
+"shortcut" = { fg = "#e6db74" }
+"matched" = { fg = "#8be0fd", underline = true }
+"source_marker" = { fg = "#2b3e50", bg = "#72afe4", bold = true }
+"target_marker" = { fg = "#2b3e50", bg = "#46bd72", bold = true }
+"status" = { fg = "#f8f8f2", bg = "#19242f" }
+"status title" = { fg = "#2b3e50", bg = "#f0cc04", bold = true }
+"status shortcut" = { fg = "#e6db74" }
+"revisions:selected" = { fg = "#f8f8f2", bg = "#19242f", bold = true }
+"oplog:selected" = { fg = "#f8f8f2", bg = "#19242f", bold = true }
+"evolog:selected" = { fg = "#f8f8f2", bg = "#19242f", bold = true }
+"help" = { fg = "#f8f8f2", bg = "#19242f" }
+"git" = { fg = "#f8f8f2", bg = "#19242f" }
+"bookmarks" = { fg = "#f8f8f2", bg = "#19242f" }
+"confirmation" = { fg = "#f8f8f2", bg = "#19242f" }
+"confirmation:selected" = { fg = "#f8f8f2", bg = "#19242f", bold = true }
+"preview" = { fg = "#f8f8f2", bg = "#2b3e50" }
