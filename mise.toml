@@ -1,6 +1,6 @@
 [tools]
 uv = "0.11.6"
-rust = "1.97.1"
+rust = "1.98.1"
 go = "1.27.1"
 "cargo:cargo-binstall" = "1.23.0"
 deno = "2.9.6"
