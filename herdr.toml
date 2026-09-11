@@ -15,7 +15,8 @@ focus_pane_right = "alt+l"
 [ui]
 agent_panel_sort = "priority"
 tab_bar_right = [
-  { type = "command", command = "/var/home/moosnat/src/herdr-sleep-inhibit/target/release/herdr-sleep-inhibit indicator", interval_seconds = 2, timeout_seconds = 1 },
+  # Herdr plugin checkouts have machine-specific roots and managed names.
+  { type = "command", command = "plugin_root=\"${HERDR_PLUGIN_ROOT:-}\"; if [ -z \"$plugin_root\" ]; then for candidate in \"${XDG_CONFIG_HOME:-$HOME/.config}/herdr/plugins/github\"/herdr.sleep-inhibit-*; do if [ -x \"$candidate/target/release/herdr-sleep-inhibit\" ]; then plugin_root=\"$candidate\"; break; fi; done; fi; [ -n \"$plugin_root\" ] && exec \"$plugin_root/target/release/herdr-sleep-inhibit\" indicator", interval_seconds = 2, timeout_seconds = 1 },
 ]
 
 [ui.sidebar.spaces]
