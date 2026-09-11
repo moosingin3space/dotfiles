@@ -1,11 +1,10 @@
-tap "ublue-os/tap"
-tap "moosingin3space/tap"
-tap "anomalyco/tap"
-tap "Branchmore/homebrew-tap"
-tap "blaxel-ai/blaxel"
-tap "dirge-code/dirge"
-tap "nicosuave/tap"
-tap "cloudmanic/herdr-plus", "https://github.com/cloudmanic/herdr-plus.git"
+tap "ublue-os/tap", trusted: true
+tap "moosingin3space/tap", trusted: true
+tap "Branchmore/homebrew-tap", trusted: true
+tap "blaxel-ai/blaxel", trusted: true
+tap "dirge-code/dirge", trusted: true
+tap "nicosuave/tap", trusted: true
+tap "cloudmanic/herdr-plus", "https://github.com/cloudmanic/herdr-plus.git", trusted: true
 
 # Basic development tooling
 brew "fish"
