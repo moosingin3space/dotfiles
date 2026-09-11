@@ -33,10 +33,8 @@ brew "yazi"
 # AI code agents and tooling
 brew "block-goose-cli"
 brew "ramalama"
-brew "anomalyco/tap/opencode"
 brew "dirge"
 cask "codex"
-brew "rtk"
 cask "bmor"
 brew "herdr"
 brew "herdr-plus"
@@ -45,6 +43,7 @@ brew "memex"
 # Container development tools
 brew "dagger"
 brew "melange"
+brew "cosign"
 
 # Cloud tools
 cask "blaxel"
