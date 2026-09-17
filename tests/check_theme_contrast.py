@@ -127,6 +127,78 @@ def check_glow(path: pathlib.Path, failures: list[str]) -> None:
         )
 
 
+def check_pi(path: pathlib.Path, failures: list[str]) -> None:
+    theme = json.loads(path.read_text())
+    palette = theme.get("vars", {})
+    colours = theme["colors"]
+
+    def resolve_pi(colour: str | int) -> str:
+        if isinstance(colour, int):
+            raise ValueError(f"256-colour values are not supported by the contrast checker: {colour}")
+        return palette.get(colour, colour)
+
+    background = resolve_pi(palette["background"])
+    for name in (
+        "accent",
+        "border",
+        "borderAccent",
+        "success",
+        "error",
+        "warning",
+        "muted",
+        "dim",
+        "text",
+        "thinkingText",
+        "toolTitle",
+        "toolOutput",
+        "mdHeading",
+        "mdLink",
+        "mdLinkUrl",
+        "mdCode",
+        "mdCodeBlock",
+        "mdCodeBlockBorder",
+        "mdQuote",
+        "mdQuoteBorder",
+        "mdHr",
+        "mdListBullet",
+        "toolDiffAdded",
+        "toolDiffRemoved",
+        "toolDiffContext",
+        "syntaxComment",
+        "syntaxKeyword",
+        "syntaxFunction",
+        "syntaxVariable",
+        "syntaxString",
+        "syntaxNumber",
+        "syntaxType",
+        "syntaxOperator",
+        "syntaxPunctuation",
+    ):
+        require_contrast(f"{path.name}: {name}", resolve_pi(colours[name]), background, failures)
+
+    for foreground, surface in (
+        ("userMessageText", "userMessageBg"),
+        ("customMessageText", "customMessageBg"),
+        ("customMessageLabel", "customMessageBg"),
+        ("toolOutput", "toolPendingBg"),
+        ("toolOutput", "toolSuccessBg"),
+        ("toolOutput", "toolErrorBg"),
+    ):
+        require_contrast(
+            f"{path.name}: {foreground} on {surface}",
+            resolve_pi(colours[foreground]),
+            resolve_pi(colours[surface]),
+            failures,
+        )
+
+    require_contrast(
+        f"{path.name}: searchMatchText on searchMatchBg",
+        resolve_pi(colours["searchMatchText"]),
+        resolve_pi(colours["searchMatchBg"]),
+        failures,
+    )
+
+
 def check_herdr(path: pathlib.Path, failures: list[str]) -> None:
     colours = tomllib.loads(path.read_text())["theme"]["custom"]
     text = colours["text"]
@@ -151,6 +223,7 @@ def main() -> int:
             failures.append(f"{path}: unsupported theme format; add a contrast checker")
     check_herdr(ROOT / "herdr.toml", failures)
     check_glow(ROOT / "themes/glow-lucario.json", failures)
+    check_pi(ROOT / "themes/pi-lucario.json", failures)
     if failures:
         print("\n".join(failures), file=sys.stderr)
         return 1

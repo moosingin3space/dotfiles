@@ -14,10 +14,12 @@ HOME="$test_home" \
 test "$(readlink "$test_home/.config/fish/config.fish")" = "$repo_root/config.fish"
 test "$(readlink "$test_home/.config/helix/themes/lucario.toml")" = "$repo_root/themes/helix-lucario.toml"
 test "$(readlink "$test_home/.config/jjui/themes/lucario.toml")" = "$repo_root/themes/jjui-lucario.toml"
+test "$(readlink "$test_home/.pi/agent/themes/lucario.json")" = "$repo_root/themes/pi-lucario.json"
 test "$(readlink "$test_home/.config/glow/lucario.json")" = "$repo_root/themes/glow-lucario.json"
 test "$(readlink "$test_home/.config/yazi/theme.toml")" = "$repo_root/themes/yazi-lucario.toml"
 test "$(readlink "$test_home/.config/herdr/plugins/config/herdr-lazy/plugins.list")" = "$repo_root/herdr-lazy-plugins.list"
 test "$(readlink "$test_home/.var/app/com.rioterm.Rio/config/rio/config.toml")" = "$repo_root/rio.toml"
+test "$(jq -r '.theme' "$test_home/.pi/agent/settings.json")" = "lucario"
 collie_env="$test_home/.config/herdr/plugins/config/herdr.collie/.env"
 test -f "$collie_env"
 grep -Fx 'COLLIE_MUX=herdr' "$collie_env" >/dev/null
@@ -25,11 +27,14 @@ grep -Fx 'COLLIE_MUX=herdr' "$collie_env" >/dev/null
 
 # A rerun must preserve the manually maintained access-control setting.
 printf '%s\n' 'COLLIE_TRUSTED_USER=owner@example.com' >> "$collie_env"
+printf '%s\n' '{"defaultProvider":"test-provider"}' > "$test_home/.pi/agent/settings.json"
 HOME="$test_home" \
   BREWFILE="$repo_root/tests/Brewfile" \
   DOTFILES_SKIP_SYSTEMD=1 \
   bash "$repo_root/install.sh"
 grep -Fx 'COLLIE_TRUSTED_USER=owner@example.com' "$collie_env" >/dev/null
+test "$(jq -r '.theme' "$test_home/.pi/agent/settings.json")" = "lucario"
+test "$(jq -r '.defaultProvider' "$test_home/.pi/agent/settings.json")" = "test-provider"
 
 # `mise install` reads the config symlinked by install.sh. Derive the complete
 # expected tool list from the same TOML file rather than duplicating it here.

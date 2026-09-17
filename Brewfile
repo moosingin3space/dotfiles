@@ -30,7 +30,7 @@ brew "helix"
 brew "yazi"
 
 # AI code agents and tooling
-brew "block-goose-cli"
+brew "pi-coding-agent"
 brew "ramalama"
 brew "dirge"
 cask "codex"

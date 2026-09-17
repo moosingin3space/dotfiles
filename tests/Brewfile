@@ -1,2 +1,3 @@
 brew "mise"
 brew "yq"
+brew "jq"

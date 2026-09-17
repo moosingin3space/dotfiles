@@ -30,6 +30,33 @@ mkdir -p $HOME/.config/jjui/themes
 ln -sf "$repo_root/jjui.toml" "$HOME/.config/jjui/config.toml"
 ln -sf "$repo_root/themes/jjui-lucario.toml" "$HOME/.config/jjui/themes/lucario.toml"
 
+pi_agent_dir="$HOME/.pi/agent"
+mkdir -p "$pi_agent_dir/themes"
+ln -sf "$repo_root/themes/pi-lucario.json" "$pi_agent_dir/themes/lucario.json"
+
+pi_settings="$pi_agent_dir/settings.json"
+if command -v jq >/dev/null 2>&1; then
+  pi_settings_tmp="$(mktemp "$pi_agent_dir/settings.json.XXXXXX")"
+  if [[ -s "$pi_settings" ]]; then
+    jq '.theme = "lucario"' "$pi_settings" > "$pi_settings_tmp"
+  else
+    jq -n '{theme: "lucario"}' > "$pi_settings_tmp"
+  fi
+  mv "$pi_settings_tmp" "$pi_settings"
+elif command -v node >/dev/null 2>&1; then
+  PI_SETTINGS_PATH="$pi_settings" node -e '
+    const fs = require("node:fs");
+    const path = process.env.PI_SETTINGS_PATH;
+    const contents = fs.existsSync(path) ? fs.readFileSync(path, "utf8").trim() : "";
+    const settings = contents ? JSON.parse(contents) : {};
+    if (!settings || Array.isArray(settings) || typeof settings !== "object") {
+      throw new Error("Pi settings must contain a JSON object");
+    }
+    settings.theme = "lucario";
+    fs.writeFileSync(path, `${JSON.stringify(settings, null, 2)}\n`);
+  '
+fi
+
 mkdir -p $HOME/.config/glow
 ln -sf "$repo_root/glow.yml" "$HOME/.config/glow/glow.yml"
 ln -sf "$repo_root/themes/glow-lucario.json" "$HOME/.config/glow/lucario.json"
