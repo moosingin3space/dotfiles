@@ -1,6 +1,8 @@
 onboarding = false
 
 [keys]
+# Press the prefix twice to send one literal Ctrl+B to the focused pane.
+prefix = "ctrl+b"
 previous_agent = "ctrl+up"
 next_agent = "ctrl+down"
 previous_workspace = "alt+up"
@@ -11,6 +13,14 @@ focus_pane_left = "alt+h"
 focus_pane_down = "alt+j"
 focus_pane_up = "alt+k"
 focus_pane_right = "alt+l"
+
+# Keep Alt+Up as the normal workspace shortcut, but provide an escape hatch
+# for terminal applications that need the literal key (for example Codex).
+[[keys.command]]
+key = "prefix+alt+up"
+type = "shell"
+command = "\"$HERDR_BIN_PATH\" pane send-keys \"$HERDR_ACTIVE_PANE_ID\" alt+up"
+description = "send Alt+Up to the focused pane"
 
 [ui]
 agent_panel_sort = "priority"
