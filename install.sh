@@ -99,10 +99,12 @@ if [[ "${DOTFILES_SKIP_SYSTEMD:-0}" != "1" ]]; then
   ln -sf "$repo_root/systemd/user/dotfiles-pull.service" "$HOME/.config/systemd/user/dotfiles-pull.service"
   ln -sf "$repo_root/systemd/user/dotfiles-pull.timer" "$HOME/.config/systemd/user/dotfiles-pull.timer"
   ln -sf "$repo_root/systemd/user/spotifyd-resume.service" "$HOME/.config/systemd/user/spotifyd-resume.service"
+  mkdir -p $HOME/.local/bin
+  ln -sf "$repo_root/systemd/user/spotifyd-resume" "$HOME/.local/bin/spotifyd-resume"
+  systemctl --user disable --now spotifyd-resume.service 2>/dev/null || true
   systemctl --user daemon-reload
   systemctl --user enable --now mise-upgrade.timer
   systemctl --user enable --now dotfiles-pull.timer
 
-  mkdir -p $HOME/.local/bin
-  systemctl --user enable spotifyd-resume.service
+  systemctl --user enable --now spotifyd-resume.service
 fi

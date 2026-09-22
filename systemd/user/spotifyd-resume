@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+dbus-monitor --system \
+  "type='signal',sender='org.freedesktop.login1',path='/org/freedesktop/login1',interface='org.freedesktop.login1.Manager',member='PrepareForSleep'" |
+  while IFS= read -r line; do
+    if [[ "$line" == *"boolean false"* ]]; then
+      /home/linuxbrew/.linuxbrew/bin/brew services restart spotifyd
+    fi
+  done
