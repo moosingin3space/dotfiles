@@ -19,6 +19,10 @@ brew "llvm"
 # Programming language tools
 brew "bun"
 
+# Cloud tooling
+brew "awscli"
+cask "gcloud-cli"
+
 # Useful communication tools
 brew "wormhole-william"
 
