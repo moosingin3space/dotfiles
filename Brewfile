@@ -32,6 +32,7 @@ brew "helix"
 
 # Great system utilities
 brew "yazi"
+brew "leaf-markdown-viewer"
 
 # AI code agents and tooling
 brew "pi-coding-agent"

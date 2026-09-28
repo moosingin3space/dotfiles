@@ -61,6 +61,10 @@ mkdir -p $HOME/.config/glow
 ln -sf "$repo_root/glow.yml" "$HOME/.config/glow/glow.yml"
 ln -sf "$repo_root/themes/glow-lucario.json" "$HOME/.config/glow/lucario.json"
 
+mkdir -p "$HOME/.config/leaf"
+ln -sf "$repo_root/leaf.toml" "$HOME/.config/leaf/config.toml"
+ln -sf "$repo_root/themes/leaf-lucario.toml" "$HOME/.config/leaf/lucario.toml"
+
 mkdir -p $HOME/.config/spotifyd
 ln -sf "$repo_root/spotifyd.conf" "$HOME/.config/spotifyd/spotifyd.conf"
 

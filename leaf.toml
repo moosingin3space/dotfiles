@@ -1,0 +1,2 @@
+# Use the Lucario palette bundled with this dotfiles repository.
+theme = "lucario.toml"

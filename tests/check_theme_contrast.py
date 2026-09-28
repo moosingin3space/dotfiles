@@ -208,6 +208,35 @@ def check_herdr(path: pathlib.Path, failures: list[str]) -> None:
         require_contrast(f"{path.name}: {name}", colours[name], colours["panel_bg"], failures)
 
 
+def check_leaf(path: pathlib.Path, failures: list[str]) -> None:
+    theme = tomllib.loads(path.read_text())
+    ui = theme["ui"]
+    markdown = theme["markdown"]
+    canvas = ui["content_bg"]
+
+    ui_pairs = {
+        "status_brand": ("status_brand_fg", "status_brand_bg"),
+        "status_filename": ("status_filename_fg", "status_filename_bg"),
+        "status_watch": ("status_watch_fg", "status_watch_bg"),
+        "status_reloaded": ("status_reloaded_fg", "status_reloaded_bg"),
+        "status_search": ("status_search_fg", "status_search_bg"),
+        "status_success": ("status_success_fg", "status_success_bg"),
+        "status_error": ("status_error_fg", "status_error_bg"),
+        "toc_primary_active": ("toc_primary_active", "toc_active_bg"),
+        "toc_secondary_text_active": ("toc_secondary_text_active", "toc_active_bg"),
+        "toc_primary_inactive": ("toc_primary_inactive", "toc_inactive_bg"),
+        "toc_secondary_text_inactive": ("toc_secondary_text_inactive", "toc_inactive_bg"),
+    }
+    for label, (foreground, background) in ui_pairs.items():
+        require_contrast(f"{path.name}: {label}", ui[foreground], ui[background], failures)
+
+    background_keys = {key for key in markdown if key.endswith("_bg")}
+    for name, foreground in markdown.items():
+        if name in background_keys:
+            continue
+        require_contrast(f"{path.name}: markdown.{name}", foreground, canvas, failures)
+
+
 def main() -> int:
     failures: list[str] = []
     for path in sorted((ROOT / "themes").glob("*.toml")):
@@ -219,6 +248,8 @@ def main() -> int:
             check_rio(path, failures)
         elif path.name.startswith("yazi-"):
             check_yazi(path, failures)
+        elif path.name.startswith("leaf-"):
+            check_leaf(path, failures)
         else:
             failures.append(f"{path}: unsupported theme format; add a contrast checker")
     check_herdr(ROOT / "herdr.toml", failures)
