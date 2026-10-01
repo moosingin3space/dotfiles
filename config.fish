@@ -65,3 +65,8 @@ function y
     end
     command rm -f -- "$tmp"
 end
+
+# sbx
+if test -d "/var/home/moosnat/.docker/sbx/bin"
+    set --export PATH "/var/home/moosnat/.docker/sbx/bin" $PATH
+end
