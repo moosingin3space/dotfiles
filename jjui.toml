@@ -1,2 +1,3 @@
 [ui]
 theme = "lucario"
+auto_refresh_interval = 5 # seconds
