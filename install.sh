@@ -97,15 +97,29 @@ ln -sf "$repo_root/rio.toml" "$HOME/.var/app/com.rioterm.Rio/config/rio/config.t
 ln -sf "$repo_root/themes/rio-lucario.toml" "$HOME/.var/app/com.rioterm.Rio/config/rio/themes/lucario.toml"
 
 if [[ "${DOTFILES_SKIP_SYSTEMD:-0}" != "1" ]]; then
-  mkdir -p $HOME/.config/systemd/user
-  ln -sf "$repo_root/systemd/user/mise-upgrade.service" "$HOME/.config/systemd/user/mise-upgrade.service"
-  ln -sf "$repo_root/systemd/user/mise-upgrade.timer" "$HOME/.config/systemd/user/mise-upgrade.timer"
-  ln -sf "$repo_root/systemd/user/dotfiles-pull.service" "$HOME/.config/systemd/user/dotfiles-pull.service"
-  ln -sf "$repo_root/systemd/user/dotfiles-pull.timer" "$HOME/.config/systemd/user/dotfiles-pull.timer"
-  ln -sf "$repo_root/systemd/user/spotifyd-resume.service" "$HOME/.config/systemd/user/spotifyd-resume.service"
-  mkdir -p $HOME/.local/bin
-  ln -sf "$repo_root/systemd/user/spotifyd-resume" "$HOME/.local/bin/spotifyd-resume"
+  systemd_user_dir="${XDG_CONFIG_HOME:-"$HOME/.config"}/systemd/user"
+  mkdir -p "$systemd_user_dir"
   systemctl --user disable --now spotifyd-resume.service 2>/dev/null || true
+
+  link_systemd_unit() {
+    local source="$1"
+    local destination="$2"
+    if [[ -d "$destination" && ! -L "$destination" ]]; then
+      rmdir "$destination" || {
+        printf 'Cannot install systemd unit over non-empty directory: %s\n' "$destination" >&2
+        return 1
+      }
+    fi
+    ln -sfnT "$source" "$destination"
+  }
+
+  link_systemd_unit "$repo_root/systemd/user/mise-upgrade.service" "$systemd_user_dir/mise-upgrade.service"
+  link_systemd_unit "$repo_root/systemd/user/mise-upgrade.timer" "$systemd_user_dir/mise-upgrade.timer"
+  link_systemd_unit "$repo_root/systemd/user/dotfiles-pull.service" "$systemd_user_dir/dotfiles-pull.service"
+  link_systemd_unit "$repo_root/systemd/user/dotfiles-pull.timer" "$systemd_user_dir/dotfiles-pull.timer"
+  link_systemd_unit "$repo_root/systemd/user/spotifyd-resume.service" "$systemd_user_dir/spotifyd-resume.service"
+  mkdir -p "$HOME/.local/bin"
+  ln -sfnT "$repo_root/systemd/user/spotifyd-resume" "$HOME/.local/bin/spotifyd-resume"
   systemctl --user daemon-reload
   systemctl --user enable --now mise-upgrade.timer
   systemctl --user enable --now dotfiles-pull.timer
