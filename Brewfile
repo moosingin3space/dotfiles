@@ -65,6 +65,7 @@ flatpak "com.rioterm.Rio"
 # GUI apps: Productivity
 flatpak "md.obsidian.Obsidian"
 flatpak "io.podman_desktop.PodmanDesktop"
+flatpak "xyz.mooshq.GuestInfoDisplay.Devel", remote: "https://moosingin3space.github.io/guest-info-display/xyz.mooshq.GuestInfoDisplay.Devel.flatpakref"
 
 # GUI apps: Communication
 flatpak "org.signal.Signal"
