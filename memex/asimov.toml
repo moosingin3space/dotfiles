@@ -1,0 +1,14 @@
+[multi_machine]
+default = ["local", "voyager"]
+
+[[machines]]
+id = "voyager"
+label = "Voyager"
+command = "/home/linuxbrew/.linuxbrew/bin/memex"
+
+[machines.control]
+type = "ssh"
+host = "voyager"
+
+[machines.index]
+type = "remote"

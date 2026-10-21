@@ -1,0 +1,14 @@
+[multi_machine]
+default = ["local", "asimov"]
+
+[[machines]]
+id = "asimov"
+label = "Asimov"
+command = "/home/linuxbrew/.linuxbrew/bin/memex"
+
+[machines.control]
+type = "ssh"
+host = "asimov"
+
+[machines.index]
+type = "remote"

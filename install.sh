@@ -71,6 +71,20 @@ ln -sf "$repo_root/spotifyd.conf" "$HOME/.config/spotifyd/spotifyd.conf"
 mkdir -p $HOME/.config/herdr
 ln -sf "$repo_root/herdr.toml" "$HOME/.config/herdr/config.toml"
 
+# Each machine queries the other over Tailscale SSH. Keep the peer definitions
+# separate so a machine never registers itself as a remote.
+memex_config=""
+case "$(hostname -s)" in
+  asimov) memex_config="$repo_root/memex/asimov.toml" ;;
+  voyager) memex_config="$repo_root/memex/voyager.toml" ;;
+esac
+if [[ -n "$memex_config" ]]; then
+  mkdir -p "$HOME/.memex"
+  if [[ ! -e "$HOME/.memex/config.toml" ]]; then
+    ln -s "$memex_config" "$HOME/.memex/config.toml"
+  fi
+fi
+
 mkdir -p $HOME/.config/herdr/plugins/config/herdr-lazy
 ln -sf "$repo_root/herdr-lazy-plugins.list" "$HOME/.config/herdr/plugins/config/herdr-lazy/plugins.list"
 
