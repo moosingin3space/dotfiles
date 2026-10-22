@@ -1,7 +1,6 @@
 tap "ublue-os/tap", trusted: true
 tap "moosingin3space/tap", trusted: true
 tap "Branchmore/homebrew-tap", trusted: true
-tap "blaxel-ai/blaxel", trusted: true
 tap "dirge-code/dirge", trusted: true
 tap "nicosuave/tap", trusted: true
 tap "cloudmanic/herdr-plus", "https://github.com/cloudmanic/herdr-plus.git", trusted: true
@@ -48,9 +47,6 @@ brew "memex"
 brew "dagger"
 brew "melange"
 brew "cosign"
-
-# Cloud tools
-cask "blaxel"
 
 # Spotify stuff
 brew "pipewire"
