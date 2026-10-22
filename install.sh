@@ -106,6 +106,10 @@ mkdir -p $HOME/.config/rio/themes
 ln -sf "$repo_root/rio.toml" "$HOME/.config/rio/config.toml"
 ln -sf "$repo_root/themes/rio-lucario.toml" "$HOME/.config/rio/themes/lucario.toml"
 
+ptyxis_palettes_dir="${XDG_DATA_HOME:-"$HOME/.local/share"}/org.gnome.Ptyxis/palettes"
+mkdir -p "$ptyxis_palettes_dir"
+ln -sf "$repo_root/themes/ptyxis-lucario.palette" "$ptyxis_palettes_dir/lucario.palette"
+
 mkdir -p $HOME/.var/app/com.rioterm.Rio/config/rio/themes
 ln -sf "$repo_root/rio.toml" "$HOME/.var/app/com.rioterm.Rio/config/rio/config.toml"
 ln -sf "$repo_root/themes/rio-lucario.toml" "$HOME/.var/app/com.rioterm.Rio/config/rio/themes/lucario.toml"

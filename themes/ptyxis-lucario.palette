@@ -1,0 +1,29 @@
+# Lucario, matching the contrast-adjusted Rio palette in this repository.
+[Palette]
+Name=Lucario
+Background=#2b3e50
+Foreground=#f8f8f2
+CursorBackground=#f0cc04
+CursorForeground=#2b3e50
+TitlebarBackground=#2b3e50
+TitlebarForeground=#f8f8f2
+
+# Normal ANSI colors: black, red, green, yellow, blue, magenta, cyan, white.
+Color0=#a6b0b8
+Color1=#ff8878
+Color2=#46bd72
+Color3=#f0cc04
+Color4=#72afe4
+Color5=#ca94ff
+Color6=#8be0fd
+Color7=#f8f8f2
+
+# Bright ANSI colors, in the same order.
+Color8=#a6b0b8
+Color9=#ff8878
+Color10=#72cc5a
+Color11=#ffffa5
+Color12=#d6acff
+Color13=#d4a9ff
+Color14=#b9ecfd
+Color15=#ffffff

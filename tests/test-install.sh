@@ -9,6 +9,7 @@ trap 'rm -rf "$test_home"' EXIT
 HOME="$test_home" \
   BREWFILE="$repo_root/tests/Brewfile" \
   DOTFILES_SKIP_SYSTEMD=1 \
+  XDG_DATA_HOME="$test_home/.local/share" \
   bash "$repo_root/install.sh"
 
 test "$(readlink "$test_home/.config/fish/config.fish")" = "$repo_root/config.fish"
@@ -19,6 +20,7 @@ test "$(readlink "$test_home/.config/glow/lucario.json")" = "$repo_root/themes/g
 test "$(readlink "$test_home/.config/yazi/theme.toml")" = "$repo_root/themes/yazi-lucario.toml"
 test "$(readlink "$test_home/.config/herdr/plugins/config/herdr-lazy/plugins.list")" = "$repo_root/herdr-lazy-plugins.list"
 test "$(readlink "$test_home/.var/app/com.rioterm.Rio/config/rio/config.toml")" = "$repo_root/rio.toml"
+test "$(readlink "$test_home/.local/share/org.gnome.Ptyxis/palettes/lucario.palette")" = "$repo_root/themes/ptyxis-lucario.palette"
 test "$(jq -r '.theme' "$test_home/.pi/agent/settings.json")" = "lucario"
 collie_env="$test_home/.config/herdr/plugins/config/herdr.collie/.env"
 test -f "$collie_env"
@@ -31,7 +33,9 @@ printf '%s\n' '{"defaultProvider":"test-provider"}' > "$test_home/.pi/agent/sett
 HOME="$test_home" \
   BREWFILE="$repo_root/tests/Brewfile" \
   DOTFILES_SKIP_SYSTEMD=1 \
+  XDG_DATA_HOME="$test_home/custom-data" \
   bash "$repo_root/install.sh"
+test "$(readlink "$test_home/custom-data/org.gnome.Ptyxis/palettes/lucario.palette")" = "$repo_root/themes/ptyxis-lucario.palette"
 grep -Fx 'COLLIE_TRUSTED_USER=owner@example.com' "$collie_env" >/dev/null
 test "$(jq -r '.theme' "$test_home/.pi/agent/settings.json")" = "lucario"
 test "$(jq -r '.defaultProvider' "$test_home/.pi/agent/settings.json")" = "test-provider"

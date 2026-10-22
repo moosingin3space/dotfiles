@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import configparser
 import json
 import pathlib
 import sys
@@ -93,6 +94,23 @@ def check_jjui(path: pathlib.Path, failures: list[str]) -> None:
             foreground,
             selected_background,
             failures,
+        )
+
+
+def check_ptyxis(path: pathlib.Path, failures: list[str]) -> None:
+    theme = configparser.ConfigParser()
+    theme.optionxform = str
+    theme.read(path)
+    colours = theme["Palette"]
+    background = colours["Background"]
+    for name in ("Foreground", *(f"Color{index}" for index in range(16))):
+        require_contrast(f"{path.name}: {name}", colours[name], background, failures)
+    for foreground, surface in (
+        ("CursorForeground", "CursorBackground"),
+        ("TitlebarForeground", "TitlebarBackground"),
+    ):
+        require_contrast(
+            f"{path.name}: {foreground}", colours[foreground], colours[surface], failures
         )
 
 
@@ -255,6 +273,7 @@ def main() -> int:
     check_herdr(ROOT / "herdr.toml", failures)
     check_glow(ROOT / "themes/glow-lucario.json", failures)
     check_pi(ROOT / "themes/pi-lucario.json", failures)
+    check_ptyxis(ROOT / "themes/ptyxis-lucario.palette", failures)
     if failures:
         print("\n".join(failures), file=sys.stderr)
         return 1
