@@ -102,6 +102,9 @@ mkdir -p $HOME/.config/yazi
 ln -sf "$repo_root/yazi.toml" "$HOME/.config/yazi/yazi.toml"
 ln -sf "$repo_root/themes/yazi-lucario.toml" "$HOME/.config/yazi/theme.toml"
 
+mkdir -p "$HOME/.config/bottom"
+ln -sf "$repo_root/bottom.toml" "$HOME/.config/bottom/bottom.toml"
+
 mkdir -p $HOME/.config/rio/themes
 ln -sf "$repo_root/rio.toml" "$HOME/.config/rio/config.toml"
 ln -sf "$repo_root/themes/rio-lucario.toml" "$HOME/.config/rio/themes/lucario.toml"

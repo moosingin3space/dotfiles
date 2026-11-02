@@ -1,0 +1,42 @@
+# Lucario theme for bottom, matching the terminal palette.
+[styles]
+bg_colour = "#2b3e50"
+
+[styles.cpu]
+all_entry_colour = "#f8f8f2"
+avg_entry_colour = "#f0cc04"
+cpu_core_colours = ["#72afe4", "#8be0fd", "#46bd72", "#f0cc04", "#ca94ff", "#ff8878"]
+
+[styles.memory]
+ram_colour = "#72afe4"
+cache_colour = "#8be0fd"
+swap_colour = "#f0cc04"
+arc_colour = "#46bd72"
+gpu_colours = ["#72afe4", "#ff8878", "#8be0fd", "#46bd72", "#ca94ff", "#f0cc04"]
+
+[styles.network]
+rx_colour = "#8be0fd"
+tx_colour = "#f0cc04"
+rx_total_colour = "#72afe4"
+tx_total_colour = "#46bd72"
+
+[styles.battery]
+high_battery_colour = "#46bd72"
+medium_battery_colour = "#f0cc04"
+low_battery_colour = "#ff8878"
+
+[styles.tables]
+headers = { colour = "#72afe4", bold = true }
+
+[styles.graphs]
+graph_colour = "#72afe4"
+legend_text = { colour = "#f8f8f2" }
+
+[styles.widgets]
+border_colour = "#a6b0b8"
+selected_border_colour = "#f0cc04"
+widget_title = { colour = "#f0cc04", bold = true }
+text = { colour = "#f8f8f2" }
+selected_text = { colour = "#12202d", bg_colour = "#72afe4", bold = true }
+disabled_text = { colour = "#a6b0b8" }
+thread_text = { colour = "#8be0fd" }
