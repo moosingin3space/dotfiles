@@ -1,6 +1,7 @@
 [tools]
 uv = "0.13.8"
-rust = "1.100.0"
+rust = { version = "1.100.0", mr_boxington = true }
+mr-boxington = "1.30.0"
 go = "1.27.4"
 "cargo:cargo-binstall" = "1.27.0"
 "cargo:zizmor" = "1.32.0"
