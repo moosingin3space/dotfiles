@@ -7,4 +7,4 @@ go = "1.27.4"
 "cargo:zizmor" = "1.32.0"
 # Homebrew's mise 2026.9.1 still resolves the pre-transfer jdx/aube registry
 # entry, so use the current GitHub repository explicitly until that registry updates.
-"github:aubepkg/aube" = "latest"
+"github:aubepkg/aube" = "2.10.0"
