@@ -4,7 +4,7 @@ rust = { version = "1.100.0", mr_boxington = true }
 mr-boxington = "1.30.0"
 go = "1.27.4"
 zig = "0.17.1"
-"cargo:cargo-binstall" = "1.27.0"
+"cargo:cargo-binstall" = "1.28.0"
 "cargo:zizmor" = "1.32.0"
 "cargo:cargo-zigbuild" = "0.24.1"
 "cargo:cargo-xwin" = "0.23.1"
