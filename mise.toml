@@ -10,4 +10,4 @@ zig = "0.17.1"
 "cargo:cargo-xwin" = "0.23.1"
 # Homebrew's mise 2026.9.1 still resolves the pre-transfer jdx/aube registry
 # entry, so use the current GitHub repository explicitly until that registry updates.
-"github:aubepkg/aube" = "2.10.0"
+"github:aubepkg/aube" = "2.11.0"
